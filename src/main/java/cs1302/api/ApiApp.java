@@ -1,12 +1,17 @@
 package cs1302.api;
 
+import java.io.FileReader;
+import java.net.http.HttpClient;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
@@ -18,6 +23,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBoundsType;
 import javafx.stage.Stage;
 
 /**
@@ -31,26 +38,71 @@ public class ApiApp extends Application {
     /* FIRST SCREEN */
     StackPane firstScreen;
     VBox firstVBox;
-    Label titleLabel;
+    Text titleText;
     HBox options;
-    VBox optionLabels, optionFields;
-    Label option1Label, option2Label;
+    VBox optionTexts, optionFields;
+    Text option1Text, option2Text;
     TextField option1Field, option2Field;
     Button searchButton;
 
     /* SECOND SCREEN */
     StackPane secondScreen;
     VBox secondVBox;
-    Label cityLabel;
+    Text cityText;
     HBox hbox;
+    ScrollPane weatherScroll;
     VBox weatherVBox;
-    Label weatherLabel;
+    Text weatherText;
     VBox daysWeather;
     VBox potentialPlaces;
-    Label placesLabel;
+    Text placesText;
     ScrollPane placesScroll;
     VBox placesVBox;
     Button backButton;
+
+    /* CLASSES FOR API DATA */
+    /** Class for Google Maps API data. */
+    public class MapsResults {
+        Candidates[] candidates;
+        String status;
+
+        /** Class that contains each place in results. */
+        public class Candidates {
+            String formatted_address;
+            Geometry geometry;
+
+            /** Class that contains relevant data for each place. */
+            public class Geometry {
+                Location location;
+
+                /** Class that contains location data for place. */
+                public class Location {
+                    double lat;
+                    double lng;
+                } // Location
+            } // Geometry
+        } // Candidates
+    } // TempResults
+
+    /** Class for weather API data. */
+    public class WeatherResults {
+        Daily daily;
+
+        /** Class that contains all weather data for every day. */
+        public class Daily {
+            String[] time;
+            int[] weather_code;
+            double[] temperature_2m_max;
+            double[] temperature_2m_min;
+        } // Daily
+    } // WeatherResults
+
+    /* API STUFF */
+    HttpClient client = HttpClient.newBuilder()
+        .version(HttpClient.Version.HTTP_2)
+        .followRedirects(HttpClient.Redirect.NORMAL)
+        .build();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     /**
      * Constructor for ApiApp, creates the object and initializes all variables.
@@ -59,41 +111,56 @@ public class ApiApp extends Application {
         /* FIRST SCREEN */
         this.firstScreen = new StackPane();
         this.firstVBox = new VBox(20);
-        this.titleLabel = new Label("Travel Companion");
-        this.titleLabel.setFont(Font.font("Comic Sans", FontWeight.BOLD, 36));
+        this.titleText = new Text("Travel Companion") {{ setBoundsType(TextBoundsType.VISUAL); }};
         this.options = new HBox();
-        this.optionLabels = new VBox(16);
-        this.option1Label = new Label("City  (Ex. Athens, GA):");
-        this.option1Label.setFont(Font.font("Comic Sans", FontWeight.BOLD, 17));
-        this.option2Label = new Label("Start Date  (Ex. MM/DD):");
-        this.option2Label.setFont(Font.font("Comic Sans", FontWeight.BOLD, 17));
+        this.optionTexts = new VBox(30);
+        this.option1Text = new Text("City  (Ex. Athens, GA):") {{
+            setBoundsType(TextBoundsType.VISUAL); }};
+        this.option2Text = new Text("Start Date  (Ex. MM/DD):") {{
+            setBoundsType(TextBoundsType.VISUAL); }};
         this.optionFields = new VBox(8);
         this.option1Field = new TextField();
-        this.option1Field.setFont(Font.font(16));
         this.option2Field = new TextField();
-        this.option2Field.setFont(Font.font(16));
         this.searchButton = new Button("Search Location");
-        this.searchButton.setFont(Font.font(20));
 
         /* SECOND SCREEN */
         this.secondScreen = new StackPane();
-        this.secondVBox = new VBox();
-        this.cityLabel = new Label("CITY, STATE");
-        this.cityLabel.setFont(Font.font("Comic Sans", FontWeight.BOLD, 30));
+        this.secondVBox = new VBox(20);
+        this.cityText = new Text("CITY, STATE") {{ setBoundsType(TextBoundsType.VISUAL); }};
         this.hbox = new HBox(10);
-        this.weatherVBox = new VBox();
-        this.weatherLabel = new Label("Forecast");
-        this.weatherLabel.setFont(Font.font("Comic Sans", FontWeight.BOLD, 24));
-        this.daysWeather = new VBox();
-        this.potentialPlaces = new VBox();
-        this.placesLabel = new Label("Places to Stay");
-        this.placesLabel.setFont(Font.font("Comic Sans", FontWeight.BOLD, 24));
+        this.weatherVBox = new VBox(5);
+        this.weatherText = new Text("8-Day Forecast") {{ setBoundsType(TextBoundsType.VISUAL); }};
+        this.daysWeather = new VBox(5);
+        this.weatherScroll = new ScrollPane(daysWeather);
+        this.potentialPlaces = new VBox(5);
+        this.placesText = new Text("Places to Stay") {{ setBoundsType(TextBoundsType.VISUAL); }};
         this.placesVBox = new VBox();
         this.placesScroll = new ScrollPane(placesVBox);
         this.backButton = new Button("Back");
-        this.backButton.setFont(Font.font(20));
+
+        // fill everything with temporary data
+        this.fillTempData();
 
     } // App
+
+    /**
+     * Fills all data from temporary json file, rather than calling
+     * API everytime for testing.
+     */
+    public void fillTempData() {
+        this.cityText.setText("Athens, GA, USA");
+
+        try {
+            WeatherResults weatherResults = gson.fromJson(
+                new FileReader("resources/TempData.json"), WeatherResults.class);
+
+            for (int i = 0; i < weatherResults.daily.time.length; i++) {
+                this.daysWeather.getChildren().add(new DayForecast(weatherResults, i));
+            } // for
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } // try
+    } // fillTempData
 
     @Override
     public void init() {
@@ -118,40 +185,59 @@ public class ApiApp extends Application {
         /* ADD NODES TO PARENTS */
         // first screen
         this.firstScreen.getChildren().add(firstVBox);
-        this.firstVBox.getChildren().addAll(titleLabel, options, searchButton);
-        this.options.getChildren().addAll(optionLabels, optionFields);
-        this.optionLabels.getChildren().addAll(option1Label, option2Label);
+        this.firstVBox.getChildren().addAll(titleText, options, searchButton);
+        this.options.getChildren().addAll(optionTexts, optionFields);
+        this.optionTexts.getChildren().addAll(option1Text, option2Text);
         this.optionFields.getChildren().addAll(option1Field, option2Field);
         // second screen
         this.secondScreen.getChildren().addAll(secondVBox);
-        this.secondVBox.getChildren().addAll(cityLabel, hbox, backButton);
+        this.secondVBox.getChildren().addAll(cityText, hbox, backButton);
         this.hbox.getChildren().addAll(weatherVBox, potentialPlaces);
-        this.weatherVBox.getChildren().addAll(weatherLabel, daysWeather);
-        this.potentialPlaces.getChildren().addAll(placesLabel, placesScroll);
+        this.weatherVBox.getChildren().addAll(weatherText, weatherScroll);
+        this.potentialPlaces.getChildren().addAll(placesText, placesScroll);
 
         /* FORMAT */
         // first screen
         this.firstScreen.setMinSize(500, 400);
         this.firstScreen.setPadding(new Insets(40));
-        this.firstVBox.setAlignment(Pos.BASELINE_CENTER);
+        // alignment
+        this.firstVBox.setAlignment(Pos.CENTER);
         this.options.setAlignment(Pos.CENTER);
-        this.options.setMinHeight(150);
-        this.optionLabels.setMinWidth(firstScreen.getMinWidth() / 2);
-        this.optionLabels.setAlignment(Pos.CENTER_RIGHT);
-        this.optionFields.setMinWidth(firstScreen.getMinWidth() / 2);
+        this.optionTexts.setAlignment(Pos.CENTER_RIGHT);
         this.optionFields.setAlignment(Pos.CENTER_LEFT);
-        this.optionFields.setPadding(new Insets(0, 10, 0, 10));
+        // sizing
+        this.options.setMinHeight(150);
+        this.options.setPadding(new Insets(10));
+        this.optionTexts.setMinWidth(firstScreen.getMinWidth() / 2);
+        this.optionFields.setMinWidth(firstScreen.getMinWidth() / 2);
+        this.optionFields.setPadding(new Insets(0, 0, 0, 10));
+        // text
+        this.titleText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 40));
+        this.option1Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 18));
+        this.option2Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 18));
+        this.searchButton.setFont(Font.font(18));
+        this.option1Field.setFont(Font.font(18));
+        this.option2Field.setFont(Font.font(18));
         // second screen
         this.secondScreen.setMinSize(800, 600);
-        this.secondScreen.setPadding(new Insets(10, 20, 0, 20));
-        this.secondVBox.setAlignment(Pos.BASELINE_CENTER);
-        this.hbox.setPadding(new Insets(15, 0, 0, 0));
+        this.secondScreen.setPadding(new Insets(0, 20, 0, 20));
+        // alignment
+        this.secondVBox.setAlignment(Pos.CENTER);
+        this.weatherVBox.setAlignment(Pos.CENTER);
+        this.potentialPlaces.setAlignment(Pos.CENTER);
+        // sizing
         this.weatherVBox.setMinWidth(secondScreen.getMinWidth() / 3);
         HBox.setHgrow(potentialPlaces, Priority.ALWAYS);
-        this.weatherVBox.setAlignment(Pos.CENTER);
+        this.weatherScroll.setMaxHeight(420);
+        this.weatherScroll.setFitToWidth(true);
         VBox.setVgrow(daysWeather, Priority.ALWAYS);
-        this.potentialPlaces.setAlignment(Pos.CENTER);
-        this.placesScroll.setMinHeight(420);
+        this.daysWeather.setPadding(new Insets(5));
+        this.placesScroll.setPrefHeight(420);
+        // text
+        this.cityText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 30));
+        this.weatherText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 24));
+        this.placesText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 24));
+        this.backButton.setFont(Font.font(18));
 
         /* COLORING */
         // first screen
