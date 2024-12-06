@@ -53,7 +53,7 @@ public class ApiApp extends Application {
     ScrollPane weatherScroll;
     VBox weatherVBox;
     Text weatherText;
-    VBox daysWeather;
+    VBox daysWeatherVBox;
     VBox potentialPlaces;
     Text placesText;
     ScrollPane placesScroll;
@@ -61,7 +61,7 @@ public class ApiApp extends Application {
     Button backButton;
 
     /* CLASSES FOR API DATA */
-    /** Class for Google Maps API data. */
+    /** Class for Google Maps geolocation API data. */
     public class MapsResults {
         Candidates[] candidates;
         String status;
@@ -97,6 +97,20 @@ public class ApiApp extends Application {
         } // Daily
     } // WeatherResults
 
+    /** Class for Google Maps nearby lodging API data. */
+    public class PlacesResults {
+        Result[] results;
+
+        /** Class that contains all data about each place. */
+        public class Result {
+            String business_status;
+            String formatted_address;
+            String name;
+            double rating;
+            int user_ratings_total;
+        } // Result
+    } // Places Results
+
     /* API STUFF */
     HttpClient client = HttpClient.newBuilder()
         .version(HttpClient.Version.HTTP_2)
@@ -113,7 +127,7 @@ public class ApiApp extends Application {
         this.firstVBox = new VBox(20);
         this.titleText = new Text("Travel Companion") {{ setBoundsType(TextBoundsType.VISUAL); }};
         this.options = new HBox();
-        this.optionTexts = new VBox(30);
+        this.optionTexts = new VBox(28);
         this.option1Text = new Text("City  (Ex. Athens, GA):") {{
             setBoundsType(TextBoundsType.VISUAL); }};
         this.option2Text = new Text("Start Date  (Ex. MM/DD):") {{
@@ -130,13 +144,14 @@ public class ApiApp extends Application {
         this.hbox = new HBox(10);
         this.weatherVBox = new VBox(5);
         this.weatherText = new Text("8-Day Forecast") {{ setBoundsType(TextBoundsType.VISUAL); }};
-        this.daysWeather = new VBox(5);
-        this.weatherScroll = new ScrollPane(daysWeather);
+        this.daysWeatherVBox = new VBox(8);
+        this.weatherScroll = new ScrollPane(daysWeatherVBox);
         this.potentialPlaces = new VBox(5);
-        this.placesText = new Text("Places to Stay") {{ setBoundsType(TextBoundsType.VISUAL); }};
-        this.placesVBox = new VBox();
+        this.placesText = new Text("Places to Stay (within 5 miles)") {{
+            setBoundsType(TextBoundsType.VISUAL); }};
+        this.placesVBox = new VBox(8);
         this.placesScroll = new ScrollPane(placesVBox);
-        this.backButton = new Button("Back");
+        this.backButton = new Button("Back to Search");
 
         // fill everything with temporary data
         this.fillTempData();
@@ -150,12 +165,28 @@ public class ApiApp extends Application {
     public void fillTempData() {
         this.cityText.setText("Athens, GA, USA");
 
+        // weather data
         try {
             WeatherResults weatherResults = gson.fromJson(
-                new FileReader("resources/TempData.json"), WeatherResults.class);
+                new FileReader("resources/TempWeatherData.json"), WeatherResults.class);
 
             for (int i = 0; i < weatherResults.daily.time.length; i++) {
-                this.daysWeather.getChildren().add(new DayForecast(weatherResults, i));
+                this.daysWeatherVBox.getChildren().add(new DayForecast(weatherResults, i));
+            } // for
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } // try
+
+        // places to stay data
+        try {
+            PlacesResults placesResults = gson.fromJson(
+                new FileReader("resources/TempPlacesData.json"), PlacesResults.class);
+
+            for (int i = 0; i < placesResults.results.length; i++) {
+                if (placesResults.results[i].business_status.equals("OPERATIONAL")
+                    && placesResults.results[i].rating > 0) {
+                    this.placesVBox.getChildren().add(new Place(placesResults, i));
+                } // if
             } // for
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -212,12 +243,13 @@ public class ApiApp extends Application {
         this.optionFields.setMinWidth(firstScreen.getMinWidth() / 2);
         this.optionFields.setPadding(new Insets(0, 0, 0, 10));
         // text
-        this.titleText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 40));
-        this.option1Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 18));
-        this.option2Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 18));
+        this.titleText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 42));
+        this.option1Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 20));
+        this.option2Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 20));
         this.searchButton.setFont(Font.font(18));
         this.option1Field.setFont(Font.font(18));
         this.option2Field.setFont(Font.font(18));
+
         // second screen
         this.secondScreen.setMinSize(800, 600);
         this.secondScreen.setPadding(new Insets(0, 20, 0, 20));
@@ -230,9 +262,11 @@ public class ApiApp extends Application {
         HBox.setHgrow(potentialPlaces, Priority.ALWAYS);
         this.weatherScroll.setMaxHeight(420);
         this.weatherScroll.setFitToWidth(true);
-        VBox.setVgrow(daysWeather, Priority.ALWAYS);
-        this.daysWeather.setPadding(new Insets(5));
+        VBox.setVgrow(daysWeatherVBox, Priority.ALWAYS);
+        this.daysWeatherVBox.setPadding(new Insets(5));
         this.placesScroll.setPrefHeight(420);
+        this.placesScroll.setMaxWidth(secondScreen.getMinWidth() / 3 * 2);
+        this.placesVBox.setPadding(new Insets(5));
         // text
         this.cityText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 30));
         this.weatherText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 24));
@@ -245,13 +279,18 @@ public class ApiApp extends Application {
         this.options.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
         // second screen
         this.secondScreen.setBackground(new Background(new BackgroundFill(Color.GRAY, null, null)));
-        this.daysWeather.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+        this.daysWeatherVBox.setBackground(new Background(
+                                               new BackgroundFill(Color.WHITE, null, null)));
 
         /* SETUP SCENE & STAGE */
         this.stage = stage;
         this.scene = new Scene(firstScreen);
         this.stage.setScene(scene);
         this.stage.setTitle("ApiApp!");
+        this.stage.setOnCloseRequest(event -> Platform.exit());
+        this.stage.setResizable(false);
+        this.stage.sizeToScene();
+        this.stage.show();
         this.stage.setOnCloseRequest(event -> Platform.exit());
         this.stage.setResizable(false);
         this.stage.sizeToScene();

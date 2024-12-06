@@ -1,0 +1,981 @@
+{
+  "html_attributions": [],
+  "next_page_token": "AdDdOWpovhaMhZ2QSPMVSTifZDIz1frW8X0KfBSNodHpjTkqcb3CktaDe9O3MQxzkZ5ZkZA23FRi8nieDQ1MRhc8fwmL_tdXuVwpAgW4S5iYJ3ihIflADdqWdoOylc31lLdD2faVBqwUMlC6AjHhWocEUYHOnLBFp8vGGqLEiKLN4nuRnNBZHLS2mZrQUjZELY1zyQtNF8ZyYeMYIgb0cDclAx4TDrauco2ptFkX4YDOKqWp-UHzMtJYeeI6m2ovUs9td8S-mbh__f2BBCV0-yOfHKm5ii_OPLTr1qydBUZ5zqAJubto_TMqVy3B9qYu2YRCPY1o27rw3sPHHkAGfvKKBn9xy0chIfYBN550DPHrNMToZ8F-_y969zGcFukPKt20u4jGUT0",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "2569 Riverbend Rd, Athens, GA 30605, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9201767,
+          "lng": -83.3747526
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9214829298927,
+            "lng": -83.3732393701073
+          },
+          "southwest": {
+            "lat": 33.9187832701073,
+            "lng": -83.3759390298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Lavender Hill Bed & Breakfast",
+      "photos": [
+        {
+          "height": 1280,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/116279597134745673350\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqY0Z-9Pnm2o_siLLj0ao7sKFvaBp0SOyC8qfx1caMTQVUfTHgA_VJ3CKNv-SPEHY51KfdStZMK50MYZMW_NQKGMLcIXB91jSMTCxG-_ZjO5qxRux6wxc9tiFM52GJvDIP6xbL3o4eHDYsAJUJIUQ8yJON6UyRk8_AR6nrt8YBetWVg",
+          "width": 1920
+        }
+      ],
+      "place_id": "ChIJi4MdCRxt9ogRQgKFejo5d2c",
+      "plus_code": {
+        "compound_code": "WJCG+33 Athens, Georgia",
+        "global_code": "865RWJCG+33"
+      },
+      "rating": 5,
+      "reference": "ChIJi4MdCRxt9ogRQgKFejo5d2c",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1175 S Milledge Ave, Athens, GA 30605, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9399552,
+          "lng": -83.3868449
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9412808798927,
+            "lng": -83.3855463701073
+          },
+          "southwest": {
+            "lat": 33.9385812201073,
+            "lng": -83.3882460298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "ATH BNB The Rushmore",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2401,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/107235245314579563677\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqdwbKx5H369TFMWQoarVeQWLeq4QQpivWwvgOd50QQ8SEK88rKYIAkDm9q0IQiksOGXHDX0gFTycqh7eRdXbcms8m19BFDh_o6wIKaeJxtVSLg4aftnsPZhJck1Qj-V6fRfQdFMBI8WtwmLaYdXCFeNEjekAq5A1SaC0RBSKdLRmMx",
+          "width": 3600
+        }
+      ],
+      "place_id": "ChIJ03NF9Yht9ogRSgHSCcLRYDA",
+      "plus_code": {
+        "compound_code": "WJR7+27 Athens, Georgia",
+        "global_code": "865RWJR7+27"
+      },
+      "rating": 5,
+      "reference": "ChIJ03NF9Yht9ogRSgHSCcLRYDA",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 124
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "355 Oneta St Building C2 Suite 100, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9694162,
+          "lng": -83.3969702
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9709069298927,
+            "lng": -83.3955468201073
+          },
+          "southwest": {
+            "lat": 33.9682072701073,
+            "lng": -83.3982464798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Rivet House",
+      "photos": [
+        {
+          "height": 1191,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/114026221667786586572\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWoECjx33I3ebqpvQOMIBbifdnsqBTQCnxeQzA_OEi7eV63wMjghk7cHkpOmW4jKoiFKSMlgEEMCwSpmURx7TuJGGzF8nZM02KkYNfsqekuXircw0iVxzNmSmbp-gvVb-xju2SUxDBLPcRFnWQVPz48iMTVCVG9pEVAEcODrQiaq3Rzg",
+          "width": 2120
+        }
+      ],
+      "place_id": "ChIJ-94QH1Rt9ogR7fVXcUD0H9E",
+      "plus_code": {
+        "compound_code": "XJ93+Q6 Athens, Georgia",
+        "global_code": "865RXJ93+Q6"
+      },
+      "rating": 4.2,
+      "reference": "ChIJ-94QH1Rt9ogR7fVXcUD0H9E",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 28
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "420 S Milledge Ave, Athens, GA 30605, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9502797,
+          "lng": -83.3875922
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9515888798927,
+            "lng": -83.3861619701073
+          },
+          "southwest": {
+            "lat": 33.9488892201073,
+            "lng": -83.3888616298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "The Branch on Milledge",
+      "photos": [
+        {
+          "height": 1536,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/117351387052180146803\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWpSZ43kYT-4rsH8plsD8uHZhGPEZ5w7DpZRo8OC0ZITMVRXO59id_K57eC3N9pBbeFAjoOvImNIlkvD5cCWJFNc_rBgvH36ExLKTaiNw_deddoh2eKqUi0iJCBUa2kGj0CDFpwCXti_cBKLL4BqdX5XqX_B8k_OFy_CvXDBN0x-0gp8",
+          "width": 2049
+        }
+      ],
+      "place_id": "ChIJ6esIKdRt9ogRYGHfm3zy_Sg",
+      "plus_code": {
+        "compound_code": "XJ26+4X Athens, Georgia",
+        "global_code": "865RXJ26+4X"
+      },
+      "rating": 5,
+      "reference": "ChIJ6esIKdRt9ogRYGHfm3zy_Sg",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 15
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "238 Yonah Ave, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9653966,
+          "lng": -83.4010755
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9666568298927,
+            "lng": -83.3998228201073
+          },
+          "southwest": {
+            "lat": 33.9639571701073,
+            "lng": -83.4025224798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "NormalBnB",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/101327612078641506928\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWpIYdUglFicDtg0sInyZfJs8LmGune16YMfw48HR4W63uGy_3jfmF8LHkcIu0WS9C_JchqDrTGijYAfFgWmvMtwXqTi0zsoPOdDMUA4k_iVh9qeBc_1MFsf0W90aNSouNYxe748zkp0emRf8oIxk16J66QlkMEvhpm3oCUpPLFF6qfy",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJwTgfqZht9ogRaW1htQeTugI",
+      "plus_code": {
+        "compound_code": "XH8X+5H Athens, Georgia",
+        "global_code": "865RXH8X+5H"
+      },
+      "rating": 5,
+      "reference": "ChIJwTgfqZht9ogRaW1htQeTugI",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 3
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "6295 Jefferson Rd, Athens, GA 30607, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9999264,
+          "lng": -83.4481409
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 34.0011033298927,
+            "lng": -83.4468751701073
+          },
+          "southwest": {
+            "lat": 33.9984036701073,
+            "lng": -83.4495748298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Athens House",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1072,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/101570710248462375908\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWog2dS7q_-8Tz2x2YcU79S716G8AMGG-M64Xiq3FTqU5KGvjGxtRbxLjpa_x7Sofl9pWw-o2xUJOaBmNh7WIhKFOQbcPN_eUnZYxTJ3sV110z9xxtT-oAasMc1TI7YHXmAL1InzndwaNb4i0PPls4G7UEMp08_1QQx_RaDbnIVJD5oP",
+          "width": 1765
+        }
+      ],
+      "place_id": "ChIJxe8MToMN9ogRHc4fnYstXWs",
+      "plus_code": {
+        "compound_code": "XHX2+XP Athens, Georgia",
+        "global_code": "865RXHX2+XP"
+      },
+      "rating": 4.9,
+      "reference": "ChIJxe8MToMN9ogRHc4fnYstXWs",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 24
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1051 Meadow Ln, Madison, GA 30650, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.609314,
+          "lng": -83.362878
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.6108339798927,
+            "lng": -83.3616073201073
+          },
+          "southwest": {
+            "lat": 33.6081343201073,
+            "lng": -83.3643069798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "The Farmhouse Inn",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 2398,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/110156910063890223011\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWp1awOqCB3z2BxWwssGclXVTTLzP6PYi1auWnXe1RLfVtiuO8us2_LGAehCztbe16Mr8WtLV5CgMpIcfwOmBWzvMvqnWQsXlNKJOL42nO6uwZCa2KJigUEH9nO-tnQKN2HkmZ3vaQu9Z-1iRpVE5jGbE1Fw3uIdDh6r12oWVzt8-5EJ",
+          "width": 3600
+        }
+      ],
+      "place_id": "ChIJvUCsDN6J9ogRKwm_e28RPEs",
+      "plus_code": {
+        "compound_code": "JJ5P+PR Madison, Georgia",
+        "global_code": "865RJJ5P+PR"
+      },
+      "rating": 4.9,
+      "reference": "ChIJvUCsDN6J9ogRKwm_e28RPEs",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 100
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "347 W Hancock Ave, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9587118,
+          "lng": -83.3811509
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9602139298927,
+            "lng": -83.3798514701073
+          },
+          "southwest": {
+            "lat": 33.9575142701073,
+            "lng": -83.3825511298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "The Athenian",
+      "photos": [
+        {
+          "height": 8736,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/105055315960839947111\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWpEhMqDaliRZ1GDAZ4pvBfeA8MYRpzm8ZI5qIF-ztbIZcg3lFRje63RQ5CkCSUn5YszslhR3p47L-neqjP0V1nDTBxEacgXwUDEy9gjJD6UY9aEdFtRhe0nauH76syWqoMffUxNygSUIoeRy1gyL3TSmgofuvV9j6gagjqIwzPLF_Vd",
+          "width": 11648
+        }
+      ],
+      "place_id": "ChIJW9-mrJxt9ogRgbYIarM71d4",
+      "plus_code": {
+        "compound_code": "XJ59+FG Athens, Georgia",
+        "global_code": "865RXJ59+FG"
+      },
+      "rating": 5,
+      "reference": "ChIJW9-mrJxt9ogRgbYIarM71d4",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 14
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "University of Georgia, 2044 S Milledge Dr, Athens, GA 30605, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.922081,
+          "lng": -83.38065
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9234980798927,
+            "lng": -83.3790996701073
+          },
+          "southwest": {
+            "lat": 33.9207984201073,
+            "lng": -83.3817993298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "InTown Suites Extended Stay Athens GA - University of Georgia",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3456,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/101693550607303630594\"\u003EInTown Suites Extended Stay Living Athens\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqiAzVm5Dp48Q2YnBMOXYSNUbgTKoC20CpIdmcRXipIRe8FYizE8fwOqnN8mEHa_ivOgKBzFi7LKX3ndjsbavsXvuZF5ZeyikXqg6GMincWjQnQxmo1WC8K75oXly11Xfg4RNcITRac_HtSpdW0T1u8V69RUuXQl1Gyi5eSEnN4D55c",
+          "width": 4608
+        }
+      ],
+      "place_id": "ChIJ0X56Ia1t9ogRFzAlOB8ighc",
+      "plus_code": {
+        "compound_code": "WJC9+RP Athens, Georgia",
+        "global_code": "865RWJC9+RP"
+      },
+      "rating": 3.3,
+      "reference": "ChIJ0X56Ia1t9ogRFzAlOB8ighc",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 423
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "1030 Athens Rd, Crawford, GA 30630, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.8861872,
+          "lng": -83.1463027
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.8873319298927,
+            "lng": -83.1447433201073
+          },
+          "southwest": {
+            "lat": 33.8846322701073,
+            "lng": -83.1474429798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "The Chicken Coop Bed 'n Breakfast",
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/109942870271918516067\"\u003ESarah Coffey\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqvHlEp4Qkdde3S6xu_iRUk8PUoXgpLvpTFeeywJdpnXp8oqs_E3gndyCl11RragLPolKKdj8LcvsIRbtxc1q2sQdlpjz69KqVUeN0PM5p1ha8TmAfsrsm1VMue4SzQOBMj8-cIzbxDTwm9nKrLEJmF8rPapJ9cwt2fR6WCrHCKXQaP",
+          "width": 3024
+        }
+      ],
+      "place_id": "ChIJiXToH71G9ogR5nfmUVJORe8",
+      "plus_code": {
+        "compound_code": "VVP3+FF Crawford, Georgia",
+        "global_code": "865RVVP3+FF"
+      },
+      "rating": 5,
+      "reference": "ChIJiXToH71G9ogR5nfmUVJORe8",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 36
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "4 S Public Square, Elberton, GA 30635, United States",
+      "geometry": {
+        "location": {
+          "lat": 34.1095657,
+          "lng": -82.8680665
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 34.1109992298927,
+            "lng": -82.8666334701073
+          },
+          "southwest": {
+            "lat": 34.1082995701073,
+            "lng": -82.8693331298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "The Samuel Elbert Hotel",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/116841553341257392195\"\u003Enikki vanwey\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWprhRM0nOp-OEuHVZXCKkntKzfBK1asKFjEZOUJeLtgs23oJTtTjbLQkku4hWL0LP6z4KH3pMyLoA3AyMbemfC6V5gwt1wxAzSCyd943QfnSsdHieLSyo4Oa8VDq8M-KjSETg9sRnpWKYhbEw2_EZ3eHBdc3X2YK9YBdyhA8LhJs5in",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJY4rQ53bN94gRl31a6CvZnms",
+      "plus_code": {
+        "compound_code": "445J+RQ Elberton, Georgia",
+        "global_code": "866V445J+RQ"
+      },
+      "rating": 4.6,
+      "reference": "ChIJY4rQ53bN94gRl31a6CvZnms",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 205
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "295 E Dougherty St, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9639244,
+          "lng": -83.3747741
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9650779798927,
+            "lng": -83.3733313701073
+          },
+          "southwest": {
+            "lat": 33.9623783201073,
+            "lng": -83.3760310298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+      "icon_background_color": "#FF9E67",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+      "name": "The Foundry",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4000,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/100368028507935248180\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWrhp5e7apJrxAvBP7S4e8spQuRzbwgepVKuW1UxOyEtfxJ5Kj62Pzf1F4Ak-Vz4iiVerIJkFUmQ9VAciWpNhkpTb7EGgqDtawp9GUdCOTNttwpS6t4b3xnXc9ZlwIzK00R-n-Uqfsy9fiLofNQdpwlnNpCcNnfVhH3QezB_vbKHenR5",
+          "width": 6000
+        }
+      ],
+      "place_id": "ChIJORin5dls9ogRIAlzdAtX8ec",
+      "plus_code": {
+        "compound_code": "XJ7G+H4 Athens, Georgia",
+        "global_code": "865RXJ7G+H4"
+      },
+      "rating": 4.6,
+      "reference": "ChIJORin5dls9ogRIAlzdAtX8ec",
+      "types": [
+        "restaurant",
+        "bar",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "user_ratings_total": 420
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "236 Old Epps Bridge Rd, Athens, GA 30606, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9500974,
+          "lng": -83.4122854
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9514879298927,
+            "lng": -83.4108305201073
+          },
+          "southwest": {
+            "lat": 33.9487882701073,
+            "lng": -83.4135301798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Country Inn & Suites by Radisson, Athens, GA",
+      "photos": [
+        {
+          "height": 2560,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/105051509544125397749\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqIOCYHx495NzoG_7JW61s7jSCjpgWVF0NduLfSfQudCHsbNubz-BT4NP_aCK4MeZv-_hOfxlGJPPUwQjHg-Wgn0FPG0qqO04dQ1upYzx-RapLOJzrifh-H66ktXp1gCHMp_Z-KE3It5CfLlvxe7AaoX4c7l8CkEtuHGCQsDJcPdRnM",
+          "width": 3840
+        }
+      ],
+      "place_id": "ChIJLRRRE2Zt9ogRM7v6j0TC88o",
+      "plus_code": {
+        "compound_code": "XH2Q+23 Athens, Georgia",
+        "global_code": "865RXH2Q+23"
+      },
+      "rating": 3.8,
+      "reference": "ChIJLRRRE2Zt9ogRM7v6j0TC88o",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 672
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "295 E Dougherty St, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9637969,
+          "lng": -83.3747299
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9650225798927,
+            "lng": -83.3733107701073
+          },
+          "southwest": {
+            "lat": 33.9623229201073,
+            "lng": -83.3760104298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Hotel Abacus",
+      "photos": [
+        {
+          "height": 2996,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/117819805877364230126\"\u003EGraduate Athens\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWofuXyEWeNWtd_fbsMkd87u0QkzKLsx_UKWZYxNL0AmAAg-37jPkkwgi_59AVWnxLiF9_PB2UKnJ7VTzJDCtosuX6RixdNxVDM3UfFRtR9L7pGiaoGUk2Dn4Fj2JVZC8pq9ATPEIG2jNdQJdJ8M_YfGE010T9E5VLoJjD-4_mDmEA7R",
+          "width": 6001
+        }
+      ],
+      "place_id": "ChIJORin5dls9ogRvwtY4tqlpmY",
+      "plus_code": {
+        "compound_code": "XJ7G+G4 Athens, Georgia",
+        "global_code": "865RXJ7G+G4"
+      },
+      "rating": 4.2,
+      "reference": "ChIJORin5dls9ogRvwtY4tqlpmY",
+      "types": [
+        "lodging",
+        "restaurant",
+        "point_of_interest",
+        "food",
+        "establishment"
+      ],
+      "user_ratings_total": 904
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "3890 S Barnett Shoals Rd, Athens, GA 30605, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.8899061,
+          "lng": -83.3274105
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.8912779298927,
+            "lng": -83.3260656201073
+          },
+          "southwest": {
+            "lat": 33.8885782701073,
+            "lng": -83.3287652798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Colonels B & B",
+      "photos": [
+        {
+          "height": 1944,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/108946331939824242931\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqwf3_LZm_B95eYWB-L3EurqGWP3eBF1ynGg3qsTI8G9hNQtsKD5m4oiNFHA3yLJLf6m5zociH_COtnI2ntDDM_FIR3fDKHAqqOSf-h_yE0rmUSjNiKz9KoSJWpF05BW0OsgukIS4VkG6JOhVBVxnX8WngWoW5AjK_fDFmj_p7YnZEq",
+          "width": 2896
+        }
+      ],
+      "place_id": "ChIJA7XvQvtr9ogR_wRNIr-S-1I",
+      "plus_code": {
+        "compound_code": "VMQF+W3 Athens, Georgia",
+        "global_code": "865RVMQF+W3"
+      },
+      "rating": 4.7,
+      "reference": "ChIJA7XvQvtr9ogR_wRNIr-S-1I",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 18
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "412 N Thomas St, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9608101,
+          "lng": -83.3733613
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9622534298927,
+            "lng": -83.3721215701073
+          },
+          "southwest": {
+            "lat": 33.9595537701073,
+            "lng": -83.3748212298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Hyatt Place Athens / Downtown",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1920,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/110751521588225413979\"\u003EHyatt Place Athens / Downtown\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqUqMkh0lgq5fpC0kosngVi2TDuXXVnkfzU5dZkgHK53-mQV079n569AcdH5vRDI-aeox8LI74gtQEj0x28K3NcTpS-JzXasOwf-927ix2K8b7VMhXU3ZfVkhafX1JC28LrVLEkRqhxghkZf3BI1JFNgfiRm-__GLm6Hs4tJqSBP7O2",
+          "width": 2880
+        }
+      ],
+      "place_id": "ChIJ22XgLNps9ogRQOKnel3apIk",
+      "plus_code": {
+        "compound_code": "XJ6G+CJ Athens, Georgia",
+        "global_code": "865RXJ6G+CJ"
+      },
+      "rating": 4.5,
+      "reference": "ChIJ22XgLNps9ogRQOKnel3apIk",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 733
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "513 W Broad St, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.955608,
+          "lng": -83.381493
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9570639298927,
+            "lng": -83.3799805201073
+          },
+          "southwest": {
+            "lat": 33.9543642701073,
+            "lng": -83.3826801798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Holiday Inn Express Athens-University Area, an IHG Hotel",
+      "photos": [
+        {
+          "height": 1401,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/109791420550710288096\"\u003EHoliday Inn Express Athens-University Area\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWpAhD_1sXTp3CvuVFexLTDaDS862iZ-a0pVyFAu0WjCei1lrde41sx7_MfwnmwuGvnd2vV6eGCWUs7U-W-XLgi-Jowt8xvhdXExFTUhcJ-YbbIBFB-jZjwFlPWIaSM8b49YLgaPyewYY0MZafXNfJT-KlPnU103nezGhakcewzU8fge",
+          "width": 2048
+        }
+      ],
+      "place_id": "ChIJ96g6Dd9s9ogRd3olYVBXQ7E",
+      "plus_code": {
+        "compound_code": "XJ49+6C Athens, Georgia",
+        "global_code": "865RXJ49+6C"
+      },
+      "rating": 4.2,
+      "reference": "ChIJ96g6Dd9s9ogRd3olYVBXQ7E",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 853
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "750 E Broad St, Athens, GA 30601, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.9581091,
+          "lng": -83.3705791
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.9596913798927,
+            "lng": -83.3692408701073
+          },
+          "southwest": {
+            "lat": 33.9569917201073,
+            "lng": -83.3719405298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Homewood Suites by Hilton Athens Downtown University Area",
+      "photos": [
+        {
+          "height": 3100,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/111661994684556498324\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWqxm0E9jsLiYLmzpv3kiEnoOIqErJidnyRabzX1VB5cvATCRud5sH9Yp4mJ8KMY4tSt-PaidNE2AzTraJ2VKy3jvJ65RhY2VoD7zKbrwInupNl6I_4N4PJAMW57Mu3wcCC32L_g3wGjVOHnRrLzCqlGJ1GS7c8hU89rrIoUMRY6pCQS",
+          "width": 4600
+        }
+      ],
+      "place_id": "ChIJj2mCUPht9ogR2oIoN-FXz8U",
+      "plus_code": {
+        "compound_code": "XJ5H+6Q Athens, Georgia",
+        "global_code": "865RXJ5H+6Q"
+      },
+      "rating": 4.1,
+      "reference": "ChIJj2mCUPht9ogR2oIoN-FXz8U",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 507
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "435 S Main St, Stephens, GA 30667, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.754218,
+          "lng": -83.1744049
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.7556454298927,
+            "lng": -83.1727418201073
+          },
+          "southwest": {
+            "lat": 33.7529457701073,
+            "lng": -83.1754414798927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Gillen House Bed and Breakfast & Event Venue",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/117901975417712506444\"\u003EA Google User\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWodCsAr_V7U0PmosTcSTiupFbN0NSCrjMhSDx_n7t1wrkMG09vlOFom5XNFz-rzfOQ0o-kn9I7IY4QnLBusc80gigPuv86SBvO1nHJszOZzpMgH3-CPenIYesuTRcT-rVRQ9AIvK7k7T-Rg_lVxKn7pE85nXAXWC7ZTIMSlspPzhrJp",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJsTXYZ5pc9ogRIqYQA5jWQeY",
+      "plus_code": {
+        "compound_code": "QR3G+M6 Stephens, Georgia",
+        "global_code": "865RQR3G+M6"
+      },
+      "rating": 5,
+      "reference": "ChIJsTXYZ5pc9ogRIqYQA5jWQeY",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 38
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "formatted_address": "75 Old Edwards Rd, Arnoldsville, GA 30619, United States",
+      "geometry": {
+        "location": {
+          "lat": 33.8907241,
+          "lng": -83.2237471
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 33.8920965298927,
+            "lng": -83.2225305701073
+          },
+          "southwest": {
+            "lat": 33.8893968701073,
+            "lng": -83.2252302298927
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
+      "icon_background_color": "#909CE1",
+      "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/hotel_pinlet",
+      "name": "Fair Havens Plantation",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 2667,
+          "html_attributions": [
+            "\u003Ca href=\"https://maps.google.com/maps/contrib/108429465071027718489\"\u003EFair Havens Plantation\u003C/a\u003E"
+          ],
+          "photo_reference": "AdDdOWoZ1MEpmkjSHhREb0FCNS1LTWHUftR2LmHOyzTa8kx4eAGueL-BpNkSV4cnsF2SJy-_PnbXqGPfMteDnqNoSjbLL46wjhTlxiTVuvQaYYLA1_hAHEK8GhzbApI3G2K5wHutRQcvScOUJ1mfaTcu8cDfGYZ4xklwZSLR_TK3lIedBwnR",
+          "width": 4000
+        }
+      ],
+      "place_id": "ChIJZ9X3r5JB9ogRxi7EM44gWQA",
+      "plus_code": {
+        "compound_code": "VQRG+7G Arnoldsville, Georgia",
+        "global_code": "865RVQRG+7G"
+      },
+      "rating": 5,
+      "reference": "ChIJZ9X3r5JB9ogRxi7EM44gWQA",
+      "types": [
+        "lodging",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 7
+    }
+  ],
+  "status": "OK"
+}
