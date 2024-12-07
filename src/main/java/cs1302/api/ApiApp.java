@@ -1,7 +1,12 @@
 package cs1302.api;
 
-import java.io.FileReader;
+import java.io.IOException;
+import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpResponse.BodyHandlers;
+import java.time.LocalDate;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -11,6 +16,8 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -63,11 +70,10 @@ public class ApiApp extends Application {
     /* CLASSES FOR API DATA */
     /** Class for Google Maps geolocation API data. */
     public class MapsResults {
-        Candidates[] candidates;
-        String status;
+        Candidate[] candidates;
 
         /** Class that contains each place in results. */
-        public class Candidates {
+        public class Candidate {
             String formatted_address;
             Geometry geometry;
 
@@ -117,6 +123,14 @@ public class ApiApp extends Application {
         .followRedirects(HttpClient.Redirect.NORMAL)
         .build();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    String mapURL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json";
+    String weatherURL = "https://historical-forecast-api.open-meteo.com/v1/forecast";
+    String placesURL = "https://maps.googleapis.com/maps/api/place/textsearch/json";
+    // results
+    MapsResults mapsResults;
+    WeatherResults weatherResults;
+    PlacesResults placesResults;
+    double latitude, longitude;
 
     /**
      * Constructor for ApiApp, creates the object and initializes all variables.
@@ -152,63 +166,170 @@ public class ApiApp extends Application {
         this.placesVBox = new VBox(8);
         this.placesScroll = new ScrollPane(placesVBox);
         this.backButton = new Button("Back to Search");
-
-        // fill everything with temporary data
-        this.fillTempData();
-
     } // App
 
     /**
-     * Fills all data from temporary json file, rather than calling
-     * API everytime for testing.
+     * Creates a new thread and calls all the existing methods that have api calls.
+     * Creates a pop-up alert if any error occurs.
      */
-    public void fillTempData() {
-        this.cityText.setText("Athens, GA, USA");
+    public void getData() {
+        // run all api calls and dependants on new thread
+        Thread apiThread = new Thread(() -> {
+            try {
+                this.getMapsResults();
+                this.getWeatherResults();
+                this.getPlacesResults();
 
-        // weather data
-        try {
-            WeatherResults weatherResults = gson.fromJson(
-                new FileReader("resources/TempWeatherData.json"), WeatherResults.class);
+                Platform.runLater(() -> this.setData());
+            } catch (Exception e) {
+                // create alert if error
+                Platform.runLater(() -> {
+                    e.printStackTrace();
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setContentText(e.getMessage());
+                    alert.showAndWait();
+                });
+            } // try
+        });
+        apiThread.setDaemon(true);
+        apiThread.start();
+    } // getData
 
-            for (int i = 0; i < weatherResults.daily.time.length; i++) {
-                this.daysWeatherVBox.getChildren().add(new DayForecast(weatherResults, i));
-            } // for
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        } // try
+    /**
+     * Makes the api call for the given class-type and url.
+     *
+     * @param resultClass the class of which to convert the api data into.
+     * @param fullURL the required url that corresponds with the desired class-type.
+     *
+     * @returns the api data converted into the desired class-type.
+     *
+     * @throws Exception if there is an error when creating or sending api request.
+     */
+    public <T> T getResults(Class<T> resultClass, String fullURL) throws Exception {
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(fullURL)).build();
+        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 
-        // places to stay data
-        try {
-            PlacesResults placesResults = gson.fromJson(
-                new FileReader("resources/TempPlacesData.json"), PlacesResults.class);
+        // if response has any errors, throw exception
+        if (response.statusCode() != 200) {
+            throw new IOException(response.toString());
+        } // if
 
-            for (int i = 0; i < placesResults.results.length; i++) {
-                if (placesResults.results[i].business_status.equals("OPERATIONAL")
-                    && placesResults.results[i].rating > 0) {
-                    this.placesVBox.getChildren().add(new Place(placesResults, i));
-                } // if
-            } // for
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        } // try
-    } // fillTempData
+        // create results object from json file
+        return gson.fromJson(response.body(), resultClass);
+    } // getResults
+
+    /**
+     * Gets api results for the given location.
+     *
+     * @throws Exception if there is an error when retrieving results.
+     */
+    public void getMapsResults() throws Exception {
+        // build full url
+        String fullURL = mapURL + String.format("?inputtype=%s&fields=%s&input=%s&key=%s",
+            "textquery", "formatted_address,geometry",
+            option1Field.getText().replaceAll("\\s", ""),
+            "AIzaSyB2FtQLcf02m0NWrQpyn02VVYfHMNLpAI8");
+
+        // get api data
+        this.mapsResults = this.getResults(MapsResults.class, fullURL);
+
+        // check if there is results
+        if (this.mapsResults.candidates.length == 0) {
+            throw new IllegalArgumentException("No Results, Try Again.");
+        } // if
+
+        // set coordinates
+        this.latitude = mapsResults.candidates[0].geometry.location.lat;
+        this.longitude = mapsResults.candidates[0].geometry.location.lng;
+    } // getMapsResults
+
+    /**
+     * Gets api results for all weather data for 8 days.
+     *
+     * @throws Exception if there is an error when retrieving results.
+     */
+    public void getWeatherResults() throws Exception {
+        // get correct dates
+        String[] start = option2Field.getText().split("/");
+        LocalDate startDate = LocalDate.of(2023,
+            Integer.parseInt(start[0]), Integer.parseInt(start[1]));
+        LocalDate endDate = startDate.plusWeeks(1);
+
+        // build full url
+        String fullURL = weatherURL + String.format(
+            "?daily=%s&temperature_unit=%s&timezone=%s&" +
+            "latitude=%s&longitude=%s&start_date=%s&end_date=%s",
+            "weather_code,temperature_2m_max,temperature_2m_min", "fahrenheit", "auto",
+            latitude, longitude, startDate.toString(), endDate.toString());
+
+        // get api data
+        this.weatherResults = this.getResults(WeatherResults.class, fullURL);
+    } // getWeatherResults
+
+    /**
+     * Get api results for all nearby lodging places.
+     *
+     * @throws Exception if there is an error when retrieving results.
+     */
+    public void getPlacesResults() throws Exception {
+        // build full url
+        String fullURL = placesURL + String.format("?query=%s&radius=%s&location=%s&key=%s",
+            "lodging", "8000", String.format("%S,%S", latitude, longitude),
+            "AIzaSyB2FtQLcf02m0NWrQpyn02VVYfHMNLpAI8");
+
+        // get api data
+        this.placesResults = this.getResults(PlacesResults.class, fullURL);
+    } // getPlacesResults
+
+    /**
+     * Takes all the data from api results, and
+     * updates all visuals.
+     */
+    public void setData() {
+        // title
+        this.cityText.setText(mapsResults.candidates[0].formatted_address);
+
+        // weather
+        for (int i = 0; i < weatherResults.daily.time.length; i++) {
+            this.daysWeatherVBox.getChildren().add(new DayForecast(weatherResults, i));
+        } // for
+
+        // places
+        for (int i = 0; i < placesResults.results.length; i++) {
+            if (placesResults.results[i].business_status.equals("OPERATIONAL")
+                && placesResults.results[i].rating > 0) {
+                this.placesVBox.getChildren().add(new Place(placesResults, i));
+            } // if
+        } // for
+    } // setData
 
     @Override
     public void init() {
         /* ALL EVENT HANDLERS */
         // search button
         this.searchButton.setOnAction(ae -> {
+            // format window and switch screen
             this.scene.setRoot(secondScreen);
             this.stage.sizeToScene();
             this.stage.centerOnScreen();
+
+            // run all api calls
+            this.getData();
         });
         // back button
         this.backButton.setOnAction(ae -> {
+            // format window and switch screen
             this.scene.setRoot(firstScreen);
             this.stage.sizeToScene();
             this.stage.centerOnScreen();
-        });
 
+            // reset data
+            this.mapsResults = null;
+            this.weatherResults = null;
+            this.placesResults = null;
+            this.daysWeatherVBox.getChildren().clear();
+            this.placesVBox.getChildren().clear();
+        });
     } // init
 
     @Override
@@ -244,8 +365,8 @@ public class ApiApp extends Application {
         this.optionFields.setPadding(new Insets(0, 0, 0, 10));
         // text
         this.titleText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 42));
-        this.option1Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 20));
-        this.option2Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 20));
+        this.option1Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 22));
+        this.option2Text.setFont(Font.font("Comic Sans", FontWeight.BOLD, 22));
         this.searchButton.setFont(Font.font(18));
         this.option1Field.setFont(Font.font(18));
         this.option2Field.setFont(Font.font(18));
@@ -260,7 +381,7 @@ public class ApiApp extends Application {
         // sizing
         this.weatherVBox.setMinWidth(secondScreen.getMinWidth() / 3);
         HBox.setHgrow(potentialPlaces, Priority.ALWAYS);
-        this.weatherScroll.setMaxHeight(420);
+        this.weatherScroll.setPrefHeight(420);
         this.weatherScroll.setFitToWidth(true);
         VBox.setVgrow(daysWeatherVBox, Priority.ALWAYS);
         this.daysWeatherVBox.setPadding(new Insets(5));

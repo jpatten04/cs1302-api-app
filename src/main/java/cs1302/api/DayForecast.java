@@ -123,8 +123,8 @@ public class DayForecast extends HBox {
         this.dateText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 24));
         this.dateText.setBoundsType(TextBoundsType.VISUAL);
         this.weatherText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
-        this.weatherModelText.setFont(Font.font("Comic Sans", 17));
-        this.temperatureText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 16));
+        this.weatherModelText.setFont(Font.font("Comic Sans", 16));
+        this.temperatureText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 15));
         this.highText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 16));
         this.lowText.setFont(Font.font("Comic Sans", FontWeight.BOLD, 16));
         this.tempHighText.setFont(Font.font("Comic Sans", 18));
